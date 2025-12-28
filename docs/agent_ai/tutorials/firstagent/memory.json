@@ -1,0 +1,10 @@
+{
+  "goal": "Explain ReAct agent pattern",
+  "plan": [
+    "Identify what the user is asking",
+    "Gather key facts",
+    "Draft a concise answer"
+  ],
+  "notes": [],
+  "final_answer": "(mock) I would search the web here, then answer using those results."
+}

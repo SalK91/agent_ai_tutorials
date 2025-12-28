@@ -1,0 +1,122 @@
+# ==========================================================
+# Project Information
+# ==========================================================
+site_name: Agentic AI Lecture Notes
+site_description: "Structured lecture notes on Agentic AI."
+site_author: "Salman Khan"
+repo_url: "https://github.com/SalK91/"
+edit_uri: edit/main/docs/
+repo_name: "GitHub"
+site_url: "https://salk91.github.io/agent_ai_tutorials/"
+copyright: "© 2025 Salman Khan — Educational Use Only"
+
+# ==========================================================
+# Theme Configuration (Material)
+# ==========================================================
+theme:
+  name: material
+  language: en
+
+  
+
+  # ---- Color Palette ----
+  palette:
+    - scheme: default   # light academic background (DEFAULT)
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    - scheme: slate     # dark mode
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/white-balance-sunny
+        name: Switch to light mode
+
+
+  # ---- Fonts ----
+  font:
+    text: "Merriweather"
+    code: "Fira Code"
+
+  # ---- Features ----
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - search.suggest
+    - search.highlight
+
+
+# ==========================================================
+# Plugins
+# ==========================================================
+plugins:
+  - search
+  - autorefs
+  - glightbox       # image lightbox support
+  - mkdocs-jupyter
+  - print-site:
+      add_to_navigation: true
+      print_page_title: "Print/PDF"
+      include_nav: false
+      include_footer: true
+      
+
+# ==========================================================
+# Markdown Extensions
+# ==========================================================
+markdown_extensions:
+  - admonition
+  - footnotes
+  - def_list
+  - attr_list
+  - mdx_math:
+      enable_dollar_delimiter: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - toc:
+      permalink: true
+      toc_depth: 1   # only top-level headings in sidebar
+
+# ==========================================================
+# Extra JavaScript and Styling
+# ==========================================================
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+extra_css:
+  - styles/extra.css
+
+# ==========================================================
+# Footer and Social Links
+# ==========================================================
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/SalK91/reinforcement_learning
+  generator: false
+
+# ==========================================================
+# Navigation
+# ==========================================================
+nav:
+  - Home: "index.md"
+  - Agentic AI Lectures:
+      - 1. Introduction to Agentic AI: "agent_ai/1_intro.md"
+      - 2. Model Context Protocol: "agent_ai/2_mcp.md"
+      - 3. Agent Architecture and Design: "agent_ai/3_agent_architecture.md"
+      - 4. Planning and Reasoning: "agent_ai/4_planning_reasoning.md"
+      - 5. Learning and Adaptation: "agent_ai/5_learning_adaptation.md"
