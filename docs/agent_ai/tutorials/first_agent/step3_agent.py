@@ -4,14 +4,14 @@ import argparse
 
 from rich.console import Console
 
-from ..config import load_env, get_settings
-from ..llm import LLM
-from ..memory import JsonMemory
-from ..agent import run_agent
+from utils.config import load_env, get_settings
+from utils.llm import LLM
+from utils.memory import JsonMemory
+from utils.agent import run_agent
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Step 4: a minimal agent loop (plan + memory + tools)")
+    parser = argparse.ArgumentParser(description="Step 3: a minimal agent loop (plan + memory + tools)")
     parser.add_argument("--goal", type=str, default="Find two reputable sources explaining the ReAct agent pattern and summarize them.")
     parser.add_argument("--allow-web", action="store_true", help="Allow using SerpAPI (requires SERPAPI_API_KEY)")
     parser.add_argument("--max-iters", type=int, default=5)

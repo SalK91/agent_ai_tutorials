@@ -4,9 +4,9 @@ import argparse
 
 from rich.console import Console
 
-from ..config import load_env, get_settings
-from ..llm import LLM
-from ..tools.serpapi import search_web
+from utils.config import load_env, get_settings
+from utils.llm import LLM
+from utils.serpapi import search_web
 
 
 REACT_SYSTEM = """You are a helpful assistant.
@@ -32,25 +32,26 @@ def main() -> None:
     settings = get_settings()
     llm = LLM(settings)
 
-    console = Console()
 
     if not args.allow_web:
-        console.print("[yellow]Web access disabled. Use --allow-web to enable SerpAPI calls.[/yellow]")
+        print("[yellow]Web access disabled. Use --allow-web to enable SerpAPI calls.[/yellow]")
 
     scratch = ""
     q = args.question
 
     for i in range(args.max_iters):
         prompt = f"Question: {q}\n\nScratchpad:\n{scratch}\n\nDecide what to do next.".strip()
+
+        print(f'*** Prompt = {i} - {prompt}')
+
         resp = llm.complete(prompt, system=REACT_SYSTEM, max_output_tokens=300)
         text = (resp.text or "").strip()
 
-        console.print(f"\n[bold]Iter {i+1}[/bold] ({'mock' if resp.used_mock else 'live'})")
-        console.print(text)
+        print(f'***** Response {i} - {text}')
 
         if text.startswith("FINAL:"):
-            console.print("\n[green]Answer:[/green]")
-            console.print(text[len("FINAL:"):].strip())
+            print("\nAnswer:")
+            print(text[len("FINAL:"):].strip())
             return
 
         if text.startswith("SEARCH:"):
@@ -81,7 +82,7 @@ def main() -> None:
 
         scratch += f"\nUnexpected format. Model said: {text}"
 
-    console.print("[red]Max iterations reached without FINAL answer.[/red]")
+    print("Max iterations reached without FINAL answer.")
 
 
 if __name__ == "__main__":

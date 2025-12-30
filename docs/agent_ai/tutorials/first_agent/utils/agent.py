@@ -5,12 +5,13 @@ from typing import List, Optional
 
 from rich.console import Console
 
-from .llm import LLM
-from .planner import Plan, make_plan
-from .memory import JsonMemory
-from .tools.serpapi import search_web, WebResult
-from .condition import heuristic_answer_check
+from utils.llm import LLM
+from utils.planner import make_plan
+from utils.memory import JsonMemory
+from utils.serpapi import search_web
+from utils.condition import llm_answer_check
 
+import time
 
 @dataclass
 class AgentResult:
@@ -26,7 +27,6 @@ def run_agent(
     allow_web: bool = False,
     serpapi_api_key: str | None = None,
     max_iters: int = 6,
-    console: Optional[Console] = None,
 ) -> AgentResult:
     """A tiny agent loop.
 
@@ -40,11 +40,12 @@ def run_agent(
     The point is to demonstrate the agent pattern, not to be production-grade.
     """
 
-    console = console or Console()
     steps: List[str] = []
     used_web = False
 
     plan = make_plan(llm, goal)
+    print(f"*** Agent plan: {plan.todos}")
+    print('\n \n')
     memory.write("goal", goal)
     memory.write("plan", plan.todos)
 
@@ -67,8 +68,11 @@ def run_agent(
             f"NOTES: {notes}\n\n"
             "What should you do next? If you need web facts, use SEARCH:. Otherwise answer the goal."
         )
+
+        time.sleep(60)  # to avoid rate limits in demos
         resp = llm.complete(prompt, system=system, max_output_tokens=512)
         text = (resp.text or "").strip()
+        print(f'*** Iter {i} response: {text}')
         steps.append(f"iter {i}: {text[:200]}")
 
         if allow_web and text.upper().startswith("SEARCH:"):
@@ -96,7 +100,7 @@ def run_agent(
             last_answer = text.split(":", 1)[1].strip()
         else:
             last_answer = text
-        check = heuristic_answer_check(goal, last_answer)
+        check = llm_answer_check(llm, goal, last_answer)
         steps.append(f"check: ok={check.ok} reason={check.reason}")
         if check.ok:
             break

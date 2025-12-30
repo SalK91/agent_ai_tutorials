@@ -81,6 +81,7 @@ Prompts are an underrated primitive: they turn one-off “tool calls” into dis
 
 ## MCP Client (in the host)
 An MCP client typically:
+
 - Discovers available tools/resources/prompts from servers
 - Invokes tools on behalf of the model
 - Retrieves resources and injects them as context
@@ -89,6 +90,7 @@ An MCP client typically:
 
 ### MCP Server (capability provider)
 An MCP server:
+
 - Exposes tools with schemas and metadata
 - Exposes resources via URIs
 - Exposes prompts as templates
@@ -97,6 +99,7 @@ An MCP server:
 ## A Typical MCP Flow (End-to-End)
 
 A simple “agent uses GitHub + database” interaction often looks like:
+
 1. Connect + initialize (capabilities negotiated between client and server)
 2. Discover what the server offers (list tools/resources/prompts)
 3. Plan (the model decides what it needs next)
@@ -112,6 +115,7 @@ MCP is compatible with both workflow-driven systems and agentic systems. The dif
 
 ### MCP in workflow systems
 A workflow system might:
+
 - Always run /summarize_doc prompt after a file is selected
 - Always call db.query then format.as_json in a fixed order
 - Route to one of three prompts based on a classifier
@@ -119,6 +123,7 @@ In this setup, MCP provides standardized connectors, but the orchestration remai
 
 ### MCP in agentic systems
 An agentic system uses MCP more dynamically:
+
 - The model decides which tool to call, which resource to fetch, and which prompt to use
 - The agent iterates: it can re-query, refine filters, retrieve additional resources, or switch strategies
 
@@ -126,6 +131,7 @@ Workflows use MCP as a stable integration layer. Agents use MCP as an action-and
 
 ## Sampling: Letting Servers Request Model Completions (Safely)
 A powerful MCP capability is sampling, which allows a server to request LLM sampling (“completions/generations”) via the client—so the client (and user application) retains control over model choice, security, privacy, and cost. This is useful when a server wants to:
+
 - run a mini “reasoning step” to transform data,
 - perform a classification or summarization close to the data source,
 - implement multi-step tool logic that benefits from embedded model reasoning.
@@ -137,6 +143,7 @@ Model Context Protocol
 ### Sampling parameters (common controls)
 
 Sampling requests can include controls such as: 
+
  - modelPreferences (hints and preferences)
  - systemPrompt
  - temperature, maxTokens
@@ -158,6 +165,7 @@ MCP defines an authorization framework at the transport level for HTTP-based con
 
 ### Threat model: tools + context are attack surfaces
 MCP expands the attack surface because:
+
 - resources can contain adversarial instructions (prompt injection),
 - tools may have write capabilities,
 - sampling can nest model calls inside tool flows.
@@ -166,6 +174,7 @@ The MCP ecosystem has published security considerations and best practices, and 
 
 ### Practical guardrails (design defaults):
 - Make dangerous tools explicit and permissioned (write actions, deletions, external side effects)
+
 - Require user confirmation for high-impact actions
 - Sanitize and label untrusted content (e.g., web pages, tickets, emails)
 - Use budgets: limit tool calls, rate limit remote servers, cap sampling depth
@@ -176,6 +185,7 @@ The MCP ecosystem has published security considerations and best practices, and 
 One of MCP’s biggest architectural benefits is composability: you can combine multiple servers under a single host, and you can build servers that act as proxies or aggregators over other systems.
 
 Common composability patterns
+
 - Multi-server host: one client connects to many servers (Git + issues + docs + DB).
 - Gateway server: a server wraps multiple internal APIs into a single MCP surface.
 - Policy proxy: a server enforces org policies (masking, filtering, redaction) before exposing data downstream.

@@ -1,10 +1,8 @@
 from __future__ import annotations
-
 from dataclasses import dataclass
 from typing import Optional
-import hashlib
-
-from .config import Settings
+from utils.config import Settings
+import cohere
 
 
 @dataclass
@@ -37,9 +35,8 @@ class LLM:
         raise ValueError(f"Unknown LLM provider: {provider!r}. Use 'cohere'.")
 
     def _cohere_complete(self, prompt: str, system: str | None, temperature: float, max_output_tokens: int) -> LLMResponse:
-        import cohere
 
-        client = cohere.ClientV2(api_key=self.settings.cohere_api_key)
+        client = cohere.ClientV2(api_key=self.settings.cohere_api_key, timeout=60.0)
 
         messages = []
         if system:
@@ -53,6 +50,5 @@ class LLM:
             max_tokens=max_output_tokens,
         )
 
-        # Cohere v2: res.message.content[0].text 
         text = res.message.content[0].text
         return LLMResponse(text=text, model=f"cohere:{self.settings.cohere_model}", used_mock=False)

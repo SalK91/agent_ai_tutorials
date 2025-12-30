@@ -1,0 +1,64 @@
+{
+  "goal": "Find 3 best spots to watch fireworks in London for New-Year 2026 near Isle of dock based on latest articles in news",
+  "plan": [
+    "Search for reputable London-based news websites and blogs that cover local events and New Year's celebrations.",
+    "Check for recent articles (within the last year) detailing the best fireworks viewing spots for New Year's Eve in London.",
+    "Identify locations mentioned that are specifically near the Isle of Dogs, listing at least three options.",
+    "Research each location's proximity to the Isle of Dogs and any relevant amenities or viewing advantages.",
+    "Read reviews or seek feedback from locals or previous visitors to these spots for their New Year's Eve experience.",
+    "Create a shortlist of the top 3 spots based on accessibility, atmosphere, and the best overall view of the fireworks."
+  ],
+  "notes": [
+    {
+      "query": "London news websites New Year's Eve fireworks",
+      "results": [
+        {
+          "title": "NYE fireworks, megathread Q&A : r/london",
+          "link": "https://www.reddit.com/r/london/comments/1px0emu/nye_fireworks_megathread_qa/",
+          "snippet": "Hello folks,. We are getting quite a lot of threads posted about the NYE fireworks and where to watch them from."
+        },
+        {
+          "title": "London New Year's Eve fireworks 2025 | Where to watch & ...",
+          "link": "https://www.visitlondon.com/things-to-do/event/27002385-london-new-years-eve-fireworks",
+          "snippet": "Where are the New Year fireworks in London 2025? The London New Year's Eve 2025 fireworks display takes place in Westminster, near the London Eye and Big Ben."
+        },
+        {
+          "title": "London New Year's Eve 2025",
+          "link": "https://www.london.gov.uk/events/london-new-years-eve-2025",
+          "snippet": "Tickets for the Mayor of London's New Year's Eve Fireworks have now sold out. A limited number of tickets may be available through the official Tickemaster ..."
+        }
+      ]
+    },
+    {
+      "query": "London fireworks viewing spots near Isle of Dogs",
+      "results": [
+        {
+          "title": "is there anywhere to watch fireworks in the isle of dogs",
+          "link": "https://www.facebook.com/groups/1458438024296291/posts/4101898186616915/",
+          "snippet": "is there anywhere to watch fireworks in the isle of dogs ; Serg Nea. I'll go to Sir John McDougall Gardens, hopefully I'll see it there. ; Razvan ..."
+        },
+        {
+          "title": "Bonfire Night close to Canary Wharf recommendations?",
+          "link": "https://www.reddit.com/r/london/comments/qlf3rd/bonfire_night_close_to_canary_wharf/",
+          "snippet": "I live in Isle of Dogs, near Canary Wharf. Battersea Wimbledon Alexandra Palace Chiswick Beckenham Barnes Anyone know anywhere closer? Where ..."
+        },
+        {
+          "title": "The Best Spots for New Year's Eve Fireworks in London",
+          "link": "https://www.thecumberland.com/london-new-years-eve-fireworks/",
+          "snippet": "Elevated Viewing Points · Parliament Hill (Hampstead Heath) · Primrose Hill · Alexandra Palace (Ally Pally) · Hilly Fields · Telegraph Hill."
+        },
+        {
+          "title": "Where To Watch New Year's Eve Fireworks In London 2025",
+          "link": "https://www.timeout.com/london/things-to-do/watch-new-years-eve-fireworks-in-london",
+          "snippet": "Primrose Hill is a gorgeous place to watch the night sky erupt with fireworks. Isle of Dogs 360-degre panoramic views of the city's fireworks ..."
+        },
+        {
+          "title": "Best zone for firework show on NYE - London Forum",
+          "link": "https://www.tripadvisor.ie/ShowTopic-g186338-i17-k12944001-Best_zone_for_firework_show_on_NYE-London_England.html",
+          "snippet": "Hi, which is the best zone to watch the fireworks on new years eve? I have tickets for red zone but am disappointed that I missed out on blue which sold out ..."
+        }
+      ]
+    }
+  ],
+  "final_answer": "Here are three recommended spots to watch fireworks near the Isle of Dogs in London, based on recent news articles:\n\n1. **Greenwich Park**: This location is particularly mentioned for its view of the London Mayor's fireworks display during the COVID years. It offers a great vantage point to witness the fireworks over the city skyline. Address: Greenwich Park, London SE10 8QY. Getting there: The park is accessible by various transport options. You can take the DLR to Cutty Sark station, which is a short walk away, or use bus routes 129, 177, 180, 188, 199, 286, 386, or N1.\n\n2. **Canary Wharf Area**: While not a specific spot, the Canary Wharf district itself is a popular choice for fireworks viewing. The skyscrapers and waterfront provide a stunning backdrop for fireworks displays. You can explore locations like Canada Square or the area around the Canary Wharf Pier for excellent views. Transport: Canary Wharf is well-connected with its own DLR station and Jubilee line underground station.\n\n3. **Nearby Rooftop Bars and Restaurants**: Several establishments in the area offer rooftop views, providing a unique and elevated perspective for fireworks displays. While specific venues might require reservations or have entry fees, they can offer a more comfortable and festive atmosphere. Some options to consider:\n   - The Sky Garden: 20 Fenchurch Street, London EC3M 8AF.\n   - The Rooftop at Boundary London: 2-4 Boundary Street, London E2 7DD.\n   - The Culpeper Roof Garden: 40 Commercial Street, London E1 6LP.\n\nPlease note that fireworks displays may vary in location and timing, so it's essential to check the latest information and schedules for specific events. These suggestions are based on the assumption of a central location near the Isle of Dogs."
+}

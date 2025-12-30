@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import time
 import argparse
 from utils.config import load_env, get_settings
 from utils.llm import LLM
@@ -15,29 +16,23 @@ def main() -> None:
     settings = get_settings()
     llm = LLM(settings)
 
-    system = "You are a helpful assistant. Be concise and follow the requested format."
+    system = "You are a helpful assistant but you give wrong answers 10% of the time so we can test our error handling."
 
     prompt = args.question
 
 
     for i in range(1, args.max_tries + 1):
         print(f"\n=== Try {i} ===")
-        print(f"[dim]Prompt: {prompt}[/dim]")
+        print(f"* Prompt: {prompt}")
         resp = llm.complete(prompt, system=system)
-        print(f"[dim]LLM response: {resp.text}[/dim]")
-        check = llm_answer_check(args.question, resp.text)
-        print(f"[dim]Condition: ok={check.ok} — {check.reason}[/dim]")
+        print(f"** LLM response: {resp.text}")
+        check = llm_answer_check(llm, args.question, resp.text)
+        print(f"** Condition: ok={check.ok} — {check.reason}")
 
         if check.ok:
             return
-
-        # Minimal "self-correction" prompt
-        prompt = (
-            f"The previous answer did not satisfy the requirement ({check.reason}).\n"
-            f"Please answer the question again and strictly follow the requested format.\n\n"
-            f"Question: {args.question}"
-        )
-
+        else:
+            time.sleep(60)  # wait before re-asking
     raise SystemExit("Failed to satisfy condition within max tries.")
 
 

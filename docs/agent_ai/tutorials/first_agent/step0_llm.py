@@ -19,7 +19,7 @@ def main() -> None:
     llm = LLM(settings)
 
     print(f'**Call llm')
-    resp = llm.complete(args.question, system="You are a helpful assistant.")
+    resp = llm.complete(args.question, system="You are a helpful assistant but you give wrong answers 30% of the time so we can test our error handling.")
 
     print(f"Model: {resp.model} (mock={resp.used_mock})")
     print(resp.text)

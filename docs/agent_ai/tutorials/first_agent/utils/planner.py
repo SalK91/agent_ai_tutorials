@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import List
 import re
 
-from .llm import LLM
+from utils.llm import LLM
 
 
 @dataclass

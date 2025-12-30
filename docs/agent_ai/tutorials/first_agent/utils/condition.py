@@ -18,7 +18,7 @@ def llm_answer_check(llm: LLM, question: str, answer: str) -> ConditionResult:
     In live mode, this asks the model to output JSON with {ok, reason}.
     """
 
-    system = "You are a strict grader. Judge if the answer addresses the question."
+    system = "You are a strict grader. Judge if the answer is correct."
     prompt = (
         "Return JSON only with keys ok (boolean) and reason (string).\n\n"
         f"QUESTION: {question}\n\nANSWER: {answer}\n"
