@@ -120,3 +120,4 @@ nav:
       - 3. Agent Architecture and Design: "agent_ai/3_agent_architecture.md"
       - 4. Planning and Reasoning: "agent_ai/4_planning_reasoning.md"
       - 5. Learning and Adaptation: "agent_ai/5_learning_adaptation.md"
+      - 4. Lang Chain, Graph and Smith Ecosystem: "agent_ai/4_lang.md"

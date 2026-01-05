@@ -5,7 +5,10 @@ Welcome to *Lectures on Agentic AI*, a structured set of lecture notes designed 
 Pre-requiste:
 
 1. Lang Chain
-https://www.youtube.com/watch?v=vzJOAnwIokM
+https://academy.langchain.com/collections
+
+2. Anthropic course
+https://anthropic.skilljar.com/introduction-to-model-context-protocol
 
 2. Lang Graph
 3. Langflow
@@ -24,6 +27,7 @@ https://www.youtube.com/watch?v=pg1Sn9rsFak&list=PLacQJwuclt_sV-tfZmpT1Ov6jldHl3
 
 
 
+https://www.coursera.org/learn/packt-llm-engineers-handbook#modules
 
 Python + FastAPI — Python for Everybody (Coursera) + FastAPI docs. 
 Coursera
